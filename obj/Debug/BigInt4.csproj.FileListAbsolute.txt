@@ -1,0 +1,6 @@
+c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\bin\Debug\BigInt4.exe.config
+c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\bin\Debug\BigInt4.exe
+c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\bin\Debug\BigInt4.pdb
+c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\obj\Debug\BigInt4.csprojResolveAssemblyReference.cache
+c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\obj\Debug\BigInt4.exe
+c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\obj\Debug\BigInt4.pdb
