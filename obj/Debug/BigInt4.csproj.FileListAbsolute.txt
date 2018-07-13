@@ -4,3 +4,10 @@ c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\bin\Debug\B
 c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\obj\Debug\BigInt4.csprojResolveAssemblyReference.cache
 c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\obj\Debug\BigInt4.exe
 c:\users\dfast\documents\visual studio 2013\Projects\BigInt4\BigInt4\obj\Debug\BigInt4.pdb
+C:\Users\Dfast\Desktop\new\bigint4\bin\Debug\BigInt4.exe.config
+C:\Users\Dfast\Desktop\new\bigint4\bin\Debug\BigInt4.exe
+C:\Users\Dfast\Desktop\new\bigint4\bin\Debug\BigInt4.pdb
+C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.csprojAssemblyReference.cache
+C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.csproj.CoreCompileInputs.cache
+C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.exe
+C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.pdb

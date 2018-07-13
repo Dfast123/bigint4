@@ -33,10 +33,13 @@ namespace BigInt4
 
         static void Describe(BigInt number)
         {
+            string descr = number.Number.TrimStart('0');
             if (number.IsNegative)
+            {
                 Console.Write("-");
 
-            Console.WriteLine(number.Number);
+            }
+            Console.WriteLine(descr);
         }
 
         static void Main(string[] args)
@@ -58,7 +61,7 @@ namespace BigInt4
             Console.WriteLine();
 
 
-            Console.WriteLine("result Plus :");
+            Console.WriteLine("result Pluss :");
             BigInt result = BigInt.Sum(number1, number2);
             Describe(result);
             Console.WriteLine();
