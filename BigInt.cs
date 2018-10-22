@@ -29,11 +29,9 @@ namespace BigInt4
             this.Number = number;
             this.IsNegative = isNegative;
         }
-        
 
         public static BigInt Sum(BigInt number1, BigInt number2)
         {
-
             bool ResIsNegative = number1.IsNegative;
 
             if (number1.isNegative && !number2.IsNegative)//-+
@@ -46,11 +44,8 @@ namespace BigInt4
                 return Substract(number1, new BigInt(number2.number, !number2.IsNegative));
             }
 
-
-
-
             int length = number1.number.Length;
-            if(number1.number.Length < number2.number.Length)
+            if (number1.number.Length < number2.number.Length)
             {
                 length = number2.number.Length;
             }
@@ -62,8 +57,6 @@ namespace BigInt4
             int NaUm = 0;
             int curr1 = 0;
             int curr2 = 0;
-
-
 
             StringBuilder sbNum1 = new StringBuilder();
             for (int i = 0; i < length; i++)
@@ -91,8 +84,6 @@ namespace BigInt4
                 }
             }
 
-
-
             for (int i = 0; i < length; i++)
             {
                 try
@@ -111,7 +102,7 @@ namespace BigInt4
                 {
                     curr2 = 0;
                 }
-                
+
                 curr = (NaUm + curr1 + curr2);
                 NaUm = curr / 10;
                 curr %= 10;
@@ -120,34 +111,28 @@ namespace BigInt4
             if (NaUm != 0)
                 sb.Append(NaUm);
 
-
             StringBuilder sbReverse = new StringBuilder();
-            for (int i = sb.Length-1; i >= 0; i--)
+            for (int i = sb.Length - 1; i >= 0; i--)
             {
                 sbReverse.Append(sb[i]);
             }
             ResNumber = sbReverse.ToString();
 
             return new BigInt(ResNumber, ResIsNegative);
-
-            
         }
-        
+
         public static BigInt Substract(BigInt number1, BigInt number2)
         {
-
-            bool ResIsNegative = number1.IsNegative;            
-            if(number1.isNegative && !number2.IsNegative)//-+
+            bool ResIsNegative = number1.IsNegative;
+            if (number1.isNegative && !number2.IsNegative)//-+
             {
                 return Sum(number1, new BigInt(number2.number, !number2.IsNegative));
             }
 
-            if(!number1.isNegative && number2.IsNegative)//+-
+            if (!number1.isNegative && number2.IsNegative)//+-
             {
                 return Sum(number1, new BigInt(number2.number, !number2.IsNegative));
             }
-            
-            
 
             int length = number1.number.Length;
             if (number1.number.Length < number2.number.Length)
@@ -155,7 +140,7 @@ namespace BigInt4
                 length = number2.number.Length;
             }
 
-                 StringBuilder sbNum1 = new StringBuilder();
+            StringBuilder sbNum1 = new StringBuilder();
             for (int i = 0; i < length; i++)
             {
                 try
@@ -181,7 +166,6 @@ namespace BigInt4
                 }
             }
 
-
             if (ReturnBigger(number1, number2) == number2)
             {
                 StringBuilder sbSwap = sbNum1;
@@ -196,8 +180,6 @@ namespace BigInt4
             int curr2;
             int curr;
             int NaUm = 0;
-
-
 
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < length; i++)
@@ -227,8 +209,6 @@ namespace BigInt4
                 }
                 sb.Append(curr.ToString());
             }
-
-
             StringBuilder sbReverse = new StringBuilder();
             for (int i = sb.Length - 1; i >= 0; i--)
             {
@@ -237,31 +217,27 @@ namespace BigInt4
             ResNumber = sbReverse.ToString();
 
             return new BigInt(ResNumber, ResIsNegative);
-            
-
-
-
         }
 
         public static BigInt ReturnBigger(BigInt number1, BigInt number2)
-        {           
+        {
             if (number1.number.Length < number2.number.Length)
             {
                 return number2;
             }
-            else if(number1.number.Length > number2.number.Length)
+            else if (number1.number.Length > number2.number.Length)
             {
                 return number1;
             }
             else
             {
-                for(int i=0;i<number1.number.Length;i++)
+                for (int i = 0; i < number1.number.Length; i++)
                 {
-                    if(number1.number[i]>number2.number[i])
+                    if (number1.number[i] > number2.number[i])
                     {
                         return number1;
                     }
-                    else if(number1.number[i]<number2.number[i])
+                    else if (number1.number[i] < number2.number[i])
                     {
                         return number2;
                     }
@@ -269,41 +245,28 @@ namespace BigInt4
                     {
                         continue;
                     }
-
                 }
-
 
             }
             return number1;
-
-
-
-
         }
 
         public static BigInt Multiply(BigInt number1, BigInt number2)
         {
             BigInt result = new BigInt("0", false);
-     
+
             int length = number1.number.Length;
             if (number1.number.Length < number2.number.Length)
             {
                 length = number2.number.Length;
             }
 
-
-
-
-
-
             StringBuilder sbNum1 = new StringBuilder();
-            for (int i = 0; i < length-number1.Number.Length; i++)
+            for (int i = 0; i < length - number1.Number.Length; i++)
             {
                 sbNum1.Append("0");
-            }          
+            }
             sbNum1.Append(number1.number);
-    
-            
 
             StringBuilder sbNum2 = new StringBuilder();
             for (int i = 0; i < length - number2.Number.Length; i++)
@@ -311,24 +274,19 @@ namespace BigInt4
                 sbNum2.Append("0");
             }
             sbNum2.Append(number2.number);
-              
 
-            for (int i = 0; i < length;i++ )
+            for (int i = 0; i < length; i++)
             {
                 StringBuilder sb = new StringBuilder();
                 sb.Clear();
 
-               
-
                 int a = int.Parse(sbNum1[length - 1 - i].ToString());
                 sb.Append(sbNum2.ToString());
 
-
-
                 for (int j = 0; j < i; j++)
-                    sb.Append("0");               
+                    sb.Append("0");
 
-                for(int k=0;k<a;k++)
+                for (int k = 0; k < a; k++)
                 {
                     result = Sum(result, new BigInt(sb.ToString(), false));
 
@@ -339,57 +297,47 @@ namespace BigInt4
             {
                 result.IsNegative = true;
             }
-
-                return result;
+            return result;
         }
 
-     /*   public static BigInt Divide(BigInt number1, BigInt number2)
-        {
-            BigInt number2pos = new BigInt(number2.Number,false); 
-            BigInt result = new BigInt("0", false);//otgovora, samo se dolepq sbRes do nego
-            int length = number1.number.Length;
-            if (number1.number.Length < number2.number.Length)
-            {
-                length = number2.number.Length;
-            }
+        /*   public static BigInt Divide(BigInt number1, BigInt number2)
+           {
+               BigInt number2pos = new BigInt(number2.Number,false); 
+               BigInt result = new BigInt("0", false);//otgovora, samo se dolepq sbRes do nego
+               int length = number1.number.Length;
+               if (number1.number.Length < number2.number.Length)
+               {
+                   length = number2.number.Length;
+               }
 
-            StringBuilder sb = new StringBuilder();//oborotnoto, s nego se izvurshvat deistviqta
-            StringBuilder sbRes = new StringBuilder();
+               StringBuilder sb = new StringBuilder();//oborotnoto, s nego se izvurshvat deistviqta
+               StringBuilder sbRes = new StringBuilder();
 
-            for (int i = 0; i < length; i++)
-            {
-                int a = 0;
-                Console.WriteLine("a="+a);
-                
-                sb.Append(number1.Number[i].ToString());
-                BigInt curr = new BigInt(sb.ToString(), false);
-                while(ReturnBigger(curr,number2pos)==curr)
-                {
-                    Console.WriteLine(curr.Number);
-                    a++;
-                    curr = Substract(curr, number2pos);
-                    Console.ReadKey();
-                }
-                sb.Clear();
-                sb.Append(curr.Number);
+               for (int i = 0; i < length; i++)
+               {
+                   int a = 0;
+                   Console.WriteLine("a="+a);
 
-                sbRes.Append(a.ToString());
+                   sb.Append(number1.Number[i].ToString());
+                   BigInt curr = new BigInt(sb.ToString(), false);
+                   while(ReturnBigger(curr,number2pos)==curr)
+                   {
+                       Console.WriteLine(curr.Number);
+                       a++;
+                       curr = Substract(curr, number2pos);
+                       Console.ReadKey();
+                   }
+                   sb.Clear();
+                   sb.Append(curr.Number);
 
-
-            }
-
-
-
-
-                result.Number = sbRes.ToString();
-                if (number1.IsNegative != number2.IsNegative)
-                {
-                    result.IsNegative = true;
-                }
-
-            
-            return result;
-
-        }*/
+                   sbRes.Append(a.ToString());
+               }
+                   result.Number = sbRes.ToString();
+                   if (number1.IsNegative != number2.IsNegative)
+                   {
+                       result.IsNegative = true;
+                   }            
+               return result;
+           }*/
     }
 }

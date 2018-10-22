@@ -14,14 +14,11 @@ namespace BigInt4
             BigInt number = new BigInt(input, false);
             try
             {
-
-
                 if (input[0] == '-')
                 {
                     input = input.TrimStart('-');
                     input = input.TrimStart('0');
                     number = new BigInt(input, true);
-
                 }
                 return number;
             }
@@ -37,7 +34,6 @@ namespace BigInt4
             if (number.IsNegative)
             {
                 Console.Write("-");
-
             }
             Console.WriteLine(descr);
         }
@@ -46,8 +42,7 @@ namespace BigInt4
         {
             Console.WriteLine("vuvedi chislo 1");
             string input1 = Console.ReadLine();
-            BigInt number1 = Input(input1);
-            
+            BigInt number1 = Input(input1);            
 
             Console.WriteLine("vuvedi chislo 2");
             string input2 = Console.ReadLine();
@@ -59,7 +54,6 @@ namespace BigInt4
             Describe(number2);
             Console.WriteLine();
             Console.WriteLine();
-
 
             Console.WriteLine("result Pluss :");
             BigInt result = BigInt.Sum(number1, number2);
@@ -86,13 +80,9 @@ namespace BigInt4
             Console.WriteLine();
             */ 
 
-
             Console.WriteLine("sum of result + and result -");
             BigInt result4 = BigInt.Sum(result, result2);
             Describe(result4);
-
-
-
         }
     }
 }
