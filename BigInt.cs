@@ -161,7 +161,7 @@ namespace BigInt4
                 }
             }
 
-            if (ReturnBigger(number1, number2) == number2)
+            if (!FirstBigger(number1, number2))
             {
                 StringBuilder sbSwap = sbNum1;
                 sbNum1 = sbNum2;
@@ -288,13 +288,13 @@ namespace BigInt4
             for (int i = 0; i < length; i++)
             {
                 int n = 0;
-                while (ReturnBigger(number1, Multiply(number2, new BigInt(Math.Pow(10, n+1).ToString(), false))).Equals(number1))
+                while (FirstBigger(number1, Multiply(number2, new BigInt(Math.Pow(10, n+1).ToString(), false))))
                 {
                     n++;
                 }
 
                 num2Powered = Multiply(number2, new BigInt(Math.Pow(10, n).ToString(), false));
-                while (ReturnBigger(number1, num2Powered).Equals(number1))
+                while (FirstBigger(number1, num2Powered))
                 {
                     result = Sum(result, new BigInt(Math.Pow(10, n).ToString(), false));
                     number1 = Substract(number1, num2Powered);
@@ -312,18 +312,18 @@ namespace BigInt4
             return temp3;
         }
 
-        public static BigInt ReturnBigger(BigInt number1, BigInt number2)
+        public static bool FirstBigger(BigInt number1, BigInt number2)
         {
             number1 = TrimZeros(number1);
             number2 = TrimZeros(number2);
 
             if (number1.number.Length < number2.number.Length)
             {
-                return number2;
+                return false;
             }
             else if (number1.number.Length > number2.number.Length)
             {
-                return number1;
+                return true;
             }
             else
             {
@@ -331,11 +331,11 @@ namespace BigInt4
                 {
                     if (number1.number[i] > number2.number[i])
                     {
-                        return number1;
+                        return true;
                     }
                     else if (number1.number[i] < number2.number[i])
                     {
-                        return number2;
+                        return false;
                     }
                     else
                     {
@@ -343,7 +343,7 @@ namespace BigInt4
                     }
                 }
             }
-            return number1;
+            return true;
         }
 
         public static BigInt TrimZeros(BigInt number)
