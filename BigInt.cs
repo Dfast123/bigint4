@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BigInt4
 {
@@ -24,8 +21,8 @@ namespace BigInt4
 
         public BigInt(string number, bool isNegative)
         {
-            this.Number = number;
-            this.IsNegative = isNegative;
+            Number = number;
+            IsNegative = isNegative;
         }
 
         public static BigInt Sum(BigInt number1, BigInt number2)

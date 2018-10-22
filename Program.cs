@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BigInt4
 {
@@ -109,7 +105,7 @@ namespace BigInt4
             {
                 Console.Write("-");
             }
-            if(String.IsNullOrEmpty(descr))
+            if(string.IsNullOrEmpty(descr))
             {
                 descr = "0";
             }
