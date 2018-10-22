@@ -9,7 +9,6 @@ namespace BigInt4
     class BigInt
     {
         private bool isNegative;
-
         public bool IsNegative
         {
             get { return isNegative; }
@@ -17,7 +16,6 @@ namespace BigInt4
         }
 
         private string number;
-
         public string Number
         {
             get { return number; }
@@ -218,39 +216,7 @@ namespace BigInt4
             ResNumber = sbReverse.ToString();
 
             return new BigInt(ResNumber, ResIsNegative);
-        }
-
-        public static BigInt ReturnBigger(BigInt number1, BigInt number2)
-        {
-            if (number1.number.Length < number2.number.Length)
-            {
-                return number2;
-            }
-            else if (number1.number.Length > number2.number.Length)
-            {
-                return number1;
-            }
-            else
-            {
-                for (int i = 0; i < number1.number.Length; i++)
-                {
-                    if (number1.number[i] > number2.number[i])
-                    {
-                        return number1;
-                    }
-                    else if (number1.number[i] < number2.number[i])
-                    {
-                        return number2;
-                    }
-                    else
-                    {
-                        continue;
-                    }
-                }
-
-            }
-            return number1;
-        }
+        }      
 
         public static BigInt Multiply(BigInt number1, BigInt number2)
         {
@@ -297,47 +263,94 @@ namespace BigInt4
             {
                 result.IsNegative = true;
             }
+            result = BigInt.TrimZeros(result);
             return result;
         }
 
-        /*   public static BigInt Divide(BigInt number1, BigInt number2)
-           {
-               BigInt number2pos = new BigInt(number2.Number,false); 
-               BigInt result = new BigInt("0", false);//otgovora, samo se dolepq sbRes do nego
-               int length = number1.number.Length;
-               if (number1.number.Length < number2.number.Length)
-               {
-                   length = number2.number.Length;
-               }
+        public static BigInt Divide(BigInt number1, BigInt number2)
+        {
+            BigInt result = new BigInt("0", false);
+            if (number2.Number.Length > number1.Number.Length)
+                return result;
 
-               StringBuilder sb = new StringBuilder();//oborotnoto, s nego se izvurshvat deistviqta
-               StringBuilder sbRes = new StringBuilder();
+            bool resultIsNegative = false;
 
-               for (int i = 0; i < length; i++)
-               {
-                   int a = 0;
-                   Console.WriteLine("a="+a);
+            if (number1.IsNegative != number2.IsNegative)
+            {
+                resultIsNegative = true;
+            }
+            number1.IsNegative = false;
+            number2.IsNegative = false;
 
-                   sb.Append(number1.Number[i].ToString());
-                   BigInt curr = new BigInt(sb.ToString(), false);
-                   while(ReturnBigger(curr,number2pos)==curr)
-                   {
-                       Console.WriteLine(curr.Number);
-                       a++;
-                       curr = Substract(curr, number2pos);
-                       Console.ReadKey();
-                   }
-                   sb.Clear();
-                   sb.Append(curr.Number);
+            BigInt number2pos = new BigInt(number2.Number, false);
+            int length = 1 + number1.number.Length - number2.Number.Length;           
 
-                   sbRes.Append(a.ToString());
-               }
-                   result.Number = sbRes.ToString();
-                   if (number1.IsNegative != number2.IsNegative)
-                   {
-                       result.IsNegative = true;
-                   }            
-               return result;
-           }*/
+            BigInt num2Powered;
+            for (int i = 0; i < length; i++)
+            {
+                int n = 0;
+                while (ReturnBigger(number1, Multiply(number2, new BigInt(Math.Pow(10, n+1).ToString(), false))).Equals(number1))
+                {
+                    n++;
+                }
+
+                num2Powered = Multiply(number2, new BigInt(Math.Pow(10, n).ToString(), false));
+                while (ReturnBigger(number1, num2Powered).Equals(number1))
+                {
+                    result = Sum(result, new BigInt(Math.Pow(10, n).ToString(), false));
+                    number1 = Substract(number1, num2Powered);
+                }                              
+            }
+            result.IsNegative = resultIsNegative;
+            return result;
+        }
+
+        public static BigInt ModularDivision(BigInt number1, BigInt number2)
+        {
+            BigInt temp1 = Divide(number1, number2);
+            BigInt temp2 = Multiply(number2, temp1);
+            BigInt temp3 = Substract(number1, temp2);
+            return temp3;
+        }
+
+        public static BigInt ReturnBigger(BigInt number1, BigInt number2)
+        {
+            number1 = TrimZeros(number1);
+            number2 = TrimZeros(number2);
+
+            if (number1.number.Length < number2.number.Length)
+            {
+                return number2;
+            }
+            else if (number1.number.Length > number2.number.Length)
+            {
+                return number1;
+            }
+            else
+            {
+                for (int i = 0; i < number1.number.Length; i++)
+                {
+                    if (number1.number[i] > number2.number[i])
+                    {
+                        return number1;
+                    }
+                    else if (number1.number[i] < number2.number[i])
+                    {
+                        return number2;
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+            return number1;
+        }
+
+        public static BigInt TrimZeros(BigInt number)
+        {
+            number.Number = number.Number.TrimStart('0');
+            return number;
+        }
     }
 }

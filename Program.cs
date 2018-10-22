@@ -57,12 +57,25 @@ namespace BigInt4
             Console.WriteLine();
             Console.WriteLine();
 
-          /*  Console.WriteLine("result Division :");
+            Console.WriteLine("result Division :");
+            Stopwatch division = new Stopwatch();
+            division.Start();
             BigInt result5 = BigInt.Divide(number1, number2);
+            division.Stop();
             Describe(result5);
+            Console.WriteLine("Division done for "+division.ElapsedMilliseconds+"ms. ");
             Console.WriteLine();
             Console.WriteLine();
-            */ 
+
+            Console.WriteLine("result Modular Division :");
+            Stopwatch mod = new Stopwatch();
+            mod.Start();
+            BigInt result6 = BigInt.ModularDivision(number1, number2);
+            mod.Stop();
+            Describe(result6);
+            Console.WriteLine("Modular Division done for " + division.ElapsedMilliseconds + "ms. ");
+            Console.WriteLine();
+            Console.WriteLine();
 
             Console.WriteLine("sum of result + and result -");
             BigInt result4 = BigInt.Sum(result, result2);
@@ -96,9 +109,11 @@ namespace BigInt4
             {
                 Console.Write("-");
             }
+            if(String.IsNullOrEmpty(descr))
+            {
+                descr = "0";
+            }
             Console.WriteLine(descr);
         }
-
-
     }
 }
