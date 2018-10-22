@@ -272,6 +272,8 @@ namespace BigInt4
             BigInt result = new BigInt("0", false);
             if (number2.Number.Length > number1.Number.Length)
                 return result;
+            if (String.IsNullOrEmpty(number2.Number))
+                return result;
 
             bool resultIsNegative = false;
 
