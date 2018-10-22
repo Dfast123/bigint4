@@ -11,3 +11,10 @@ C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.csprojAssemblyReference.cac
 C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.csproj.CoreCompileInputs.cache
 C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.exe
 C:\Users\Dfast\Desktop\new\bigint4\obj\Debug\BigInt4.pdb
+C:\Projects\bigint4\bin\Debug\BigInt4.exe.config
+C:\Projects\bigint4\bin\Debug\BigInt4.exe
+C:\Projects\bigint4\bin\Debug\BigInt4.pdb
+C:\Projects\bigint4\obj\Debug\BigInt4.csprojAssemblyReference.cache
+C:\Projects\bigint4\obj\Debug\BigInt4.csproj.CoreCompileInputs.cache
+C:\Projects\bigint4\obj\Debug\BigInt4.exe
+C:\Projects\bigint4\obj\Debug\BigInt4.pdb

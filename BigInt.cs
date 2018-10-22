@@ -202,6 +202,7 @@ namespace BigInt4
                 }
 
                 curr = (curr1 - curr2 - NaUm);
+                NaUm = 0;
                 if (curr < 0)
                 {
                     curr += 10;
@@ -289,7 +290,6 @@ namespace BigInt4
                 for (int k = 0; k < a; k++)
                 {
                     result = Sum(result, new BigInt(sb.ToString(), false));
-
                 }
             }
 
